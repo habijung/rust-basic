@@ -1,20 +1,14 @@
 fn main() {
     println!("Hello, world!");
 
-    let mut a = 100;
-    let b = 3.14;
-    let c: u32 = 12345;
-    let d: f32 = 3.14;
-    let e: bool = true;
+    let arr: [i32; 3] = [1; 3];
+    println!("{}", arr[0]);
+    println!("{:?}", arr);
 
-    a = a + 1;
-    println!("{} and {}", a, d);
+    let dat: (i32, char, bool) = (1, 'A', true);
+    let a = dat.0;
+    let b: char = dat.1;
+    let c: bool = dat.2;
 
-    const PI: f64 = 3.141592;
-
-    let area = PI * 5.0 * 5.0;
-    println!("{}", area);
-
-    let a = "hello";
-    println!("a: {}", a);
+    let (a, b, c) = dat;
 }
