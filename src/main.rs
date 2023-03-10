@@ -1,21 +1,19 @@
-struct Member {
-    fname: String,
-    lname: String,
-    age: u16,
+struct Person {
+    id: i32,
+    name: String,
     active: bool
+}
+
+impl Person {
+    fn new(id: i32, name: String) -> Person {
+        Person{ id: id, name: name, active: true }
+    }
 }
 
 fn main() {
     println!("Hello, world!");
 
-    // 구조체 초기화
-    let mem1 = Member {
-        active: true,
-        fname: String::from("Tom"),
-        lname: String::from("Lee"),
-        age: 35
-    };
+    let p = Person::new(101, String::from("Tom"));
 
-    // 구조체 필드 읽기
-    println!("{}: {}", mem1.fname, mem1.active);
+    println!("{}: {}", p.id, p.name);
 }
