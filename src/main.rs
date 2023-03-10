@@ -1,11 +1,21 @@
+struct Member {
+    fname: String,
+    lname: String,
+    age: u16,
+    active: bool
+}
+
 fn main() {
     println!("Hello, world!");
 
-    let c = add(1, 2);
-    println!("{}", c);
-}
+    // 구조체 초기화
+    let mem1 = Member {
+        active: true,
+        fname: String::from("Tom"),
+        lname: String::from("Lee"),
+        age: 35
+    };
 
-fn add(a: i32, b: i32) -> i32 {
-    dbg!(a, b);
-    return a + b;
+    // 구조체 필드 읽기
+    println!("{}: {}", mem1.fname, mem1.active);
 }
