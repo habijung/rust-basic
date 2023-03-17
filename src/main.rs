@@ -1,32 +1,19 @@
-struct Person {
-    id: i32,
-    name: String,
-    active: bool
-}
+mod circle {
+    const PI: f64 = 3.14;
 
-impl Person {
-    fn new(id: i32, name: String) -> Person {
-        Person{ id: id, name: name, active: true }
+    pub fn perimeter(radius: f64) -> f64 {
+        2.0 * PI * radius
     }
 
-    fn display(&self) {
-        if self.active {
-            println!("{}: {}", self.id, self.name);
-        }
-        else {
-            println!("{}: inactive", self.id);
-        }
-    }
-
-    fn set_active(&mut self, is_active: bool) {
-        self.active = is_active;
+    pub fn area(radius: f64) -> f64 {
+        PI * radius * radius
     }
 }
 
 fn main() {
     println!("Hello, world!");
 
-    let mut p = Person::new(101, String::from("Tom"));
-    p.set_active(false);
-    p.display();
+    let a = circle::area(5.0);
+    let p = circle::perimeter(5.0);
+    println!("{}, {}", a, p);
 }
