@@ -1,33 +1,22 @@
-mod shape;
-
-pub mod usa {
-    pub mod washington {
-        pub mod seattle {
-            pub fn trip() {
-                println!("Trip to Seattle");
-            }
-        }
-    }
+struct Point<T> {
+    x: T,
+    y: T,
 }
 
-use usa::washington::seattle;
-use usa::washington::seattle as s;
-use usa::washington::seattle::trip;
+impl<T> Point<T> {
+    fn get_x(&self) -> &T {
+        &self.x
+    }
+    fn get_y(&self) -> &T {
+        &self.y
+    }
+}
 
 fn main() {
     println!("Hello, world!");
 
-    // shape::rect::draw();
+    let pt = Point { x: 2.0, y: 2.0 };
 
-    // Full path
-    usa::washington::seattle::trip();
-
-    // Simple path
-    seattle::trip();
-
-    // Alias path
-    s::trip();
-
-    // Use directly
-    trip();
+    println!("{}", pt.get_x());
+    println!("{}", pt.get_y());
 }
