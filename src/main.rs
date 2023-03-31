@@ -29,6 +29,10 @@ fn draw_it(item: impl Draw, x: i32, y: i32) {
     item.draw(x, y);
 }
 
+fn draw_it_bound<T: Draw>(item: T, x: i32, y: i32) {
+    item.draw(x, y);
+}
+
 fn draw_basic_circle() -> impl Draw {
     Circle { radius: 1 }
 }
@@ -37,9 +41,11 @@ fn main() {
     println!("Hello, world!");
 
     let rect = Rectangle { width: 20, height: 20 };
+    let rect_bound = Rectangle { width: 30, height: 30 };
     let circle = Circle { radius: 5 };
 
     draw_it(rect, 1, 1);
     draw_it(circle, 2, 2);
     draw_basic_circle().draw(3, 3);
+    draw_it_bound(rect_bound, 4, 4);
 }
